@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include <conio.h> // For _getch() on Windows
-#include <windows.h> // For Windows console functions
+#include <windows.h> // For Windows console function
 #include <algorithm> // For std::min
 
 using namespace std;
