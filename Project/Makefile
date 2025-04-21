@@ -1,18 +1,17 @@
-# MinGW Makefile for Windows
-CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Iinclude -mwindows
-LDFLAGS = -Llibs -lwinmm
-SRC = $(wildcard src/*.cpp)
-OBJ = $(SRC:.cpp=.o)
-EXEC = game.exe
+CC := g++
+CFLAGS := -I./src -std=c++17 -Wall -Wextra
+LDFLAGS := -lwinmm
+TARGET := game.exe
 
-all: $(EXEC)
+SRC_FILES := $(wildcard src/*.cpp)
 
-$(EXEC): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) $(LDFLAGS) -o $@
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+all:
+	$(CC) $(CFLAGS) $(SRC_FILES) -o $(TARGET) $(LDFLAGS)
 
 clean:
-	del /Q $(EXEC) src\*.o
+	del $(TARGET) 2> nul || exit 0
+
+run: all
+	./$(TARGET)
+
+.PHONY: all clean run

@@ -1,9 +1,9 @@
+// AudioManager.h
 #pragma once
-#include <windows.h>
+#include <string>
 
 class AudioManager {
 public:
-    static void playBeep(int freq, int duration);  // Uses Beep()
-    static void playSound(const char* path);       // Uses PlaySoundW()
-    
+    static void playMusic(const std::string& path);
+    static void stopMusic();
 };

@@ -1,10 +1,10 @@
 #pragma once
-#include <windows.h>
-#include <conio.h>  // For _kbhit(), _getch()
+#include <string>
 
-namespace term {
-    void clear();
-    void setColor(int color);
-    void moveCursor(int x, int y);
-    int getKey();  // Non-blocking input
-}
+class Utilities {
+public:
+    static void clearScreen();
+    static void exitGame();
+    static void setTextColor(int color);
+    static int getValidatedInput(int min, int max);
+};
